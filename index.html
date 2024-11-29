@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="imagenes/Logo_inicio.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+</head>
+<body class="body">
+    <div class="inicio">
+        <img src="imagenes/Logo_inicio.png" class="logo_inicio" alt="">
+        <table class="tabla_inicio">
+            <tr class="b">
+                <td class="b">SELECCIONE UNA OPCI&Oacute;N DEL MEN&Uacute;</td>
+            </tr>
+            <tr>
+                <td class="seleccion"><a href="registro_alumnos.html">Registro de Alumnos</a></td>
+            </tr>
+            <tr>
+                <td class="seleccion"><a href="registro_material.html">Registro de Material</a></td>
+            </tr>
+            <tr>
+                <td class="seleccion"><a href="mostrar.php">Mostrar</a></td>
+            </tr>
+            <tr>
+                <td class="seleccion"><a href="eliminar.php">Borrar</a></td>
+            </tr>
+            <tr>
+                <td class="seleccion"><a href="buscar.html">Buscar</a></td>
+            </tr>
+            <tr>
+                <td class="seleccion"><a href="registroactualizar.html">Actualizar</a></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var tabla = document.querySelector('.tabla_inicio');
+            var filas = document.querySelectorAll('.seleccion');
+            var waveCreated = false;
+            var lastPlayed = 0;
+
+            tabla.addEventListener('mouseenter', function(event) {
+                if (!waveCreated) {
+                    var wave = document.createElement('div');
+                    wave.className = 'wave';
+                    document.body.appendChild(wave);
+
+                    var rect = tabla.getBoundingClientRect();
+                    var waveX = rect.left + (rect.width / 2);
+                    var waveY = rect.top + (rect.height / 2);
+
+                    wave.style.left = waveX + 'px';
+                    wave.style.top = waveY + 'px';
+
+                    setTimeout(function() {
+                        wave.style.transform = 'scale(100)';
+                        wave.style.opacity = '0';
+                    }, 10);
+
+                    waveCreated = true;
+                    document.body.classList.add('invertido');
+                }
+            });
+
+            tabla.addEventListener('mouseleave', function() {
+                document.body.classList.remove('invertido');
+                waveCreated = false;
+            });
+
+            filas.forEach(function(fila) {
+                fila.addEventListener('mouseenter', function() {
+                    var now = Date.now();
+                    if (now - lastPlayed > 75) { // 1000 ms = 1 segundo
+                        var audio = new Audio('dbz_scouter.mp3');
+                        audio.play();
+                        lastPlayed = now;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="imagenes/Logo_inicio.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda</title>
+</head>
+<body>
+    <form class="formulario" action="buscar_alumno.php" method="POST">
+        <img class="img" src="imagenes/logo-1.jpg" class="Logo"  alt="">
+        <fieldset class="fieldset">
+            <h1>Teclea el numero de cuenta del Alumno</h1>
+            <fieldset class="fieldset_input">
+                <legend>No. de Cita</legend>
+                <input class="input_texto" type= text name=CLAVE>
+                <input class="boton_enviar" type=submit name=OK value="Buscar">
+            </fieldset>
+        </fieldset>
+    </form>
+    <form class="formulario2" action="buscar_material.php" method="POST">
+        <fieldset class="fieldset2">
+            <h1>Teclea el Id del Material</h1>
+            <fieldset class="fieldset_input">
+                <legend>No. de Matricula:</legend>
+                <input class="input_texto" type=text name=CLAVE1>
+                <input class="boton_enviar" type=submit name=OK value="Buscar">
+            </fieldset>
+        </fieldset>
+        <footer class="footer">
+            <h3 class="h3">© Copyright FESC-UNAM 2024. Sitio Administrado por [Infonenes]</h3>
+        </footer>
+    </form>
+</body>
+</html>
